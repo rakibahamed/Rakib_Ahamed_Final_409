@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Homework 2</title>
+</head>
+{% block nav %}{% include 'nav.html' %}{% endblock nav%}
+{% block body %}
+    <ul>
+        {% for customer in customer_list %}
+        <a href="{% url 'customer-update' customer.id %}"> {{customer}}</a>
+            </li>
+                {% for object in address %}
+                {% if object.fk == customer %}
+                 <li>   {{object.street}} {{object.city}} {{object.state}} {{object.zip}}<a href="{% url 'address-update' object.id %}"> edit</a><form action="{% url 'address-delete' object.id %}", method = "post">
+                {% csrf_token %}
+            <button type="submit">delete</button>
+            </form>
+
+                {% endif %}
+                {% endfor %}
+            <form action="{% url 'customer-delete' customer.id %}", method = "post">
+                {% csrf_token %}
+            <button type="submit">delete</button>
+            </form>
+            {% endfor %}
+
+             <div> {% for o in order %}
+
+            {{o}}
+          {% endfor %}</div>
+
+
+        <div>{% for o in product %}
+        {{o}}
+        {% endfor %}</div>
+
+
+    </ul>
+{% endblock %}
