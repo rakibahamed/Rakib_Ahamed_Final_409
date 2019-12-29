@@ -1,14 +1,13 @@
 ## Django-Order-Form-App
 
-An application used to store user information in a SQLlite database for easy retrieval. This application could be use by a local store to keep on track of orders and manage their progress.
+An application used to store user information in a SQLlite database for easy retrieval. This application could be use by a local store to keep on track of orders and manage their progress. Implimented a RESTful API and Django Admin page.
 
 ## Project Status
 
 This project is currently in development. Users can add new customers, multiple addresses, orders, and order details. Upcoming features planned include:
 
 - deploying to a server for live-demo of application (AWS, Heroku, DigitalOcean, etc.).
-- account creation and user login 
-- "added by" column to orders to view which employee added which order.
+- user Login and Authentication
 - mark orders for the different levels of completion (not started, in-progress, completed).
 - move completed orders to an archive.
 - sort orders by date added and filter by completion status.
